@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablet screen margins -->
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="activity_vertical_margin">32dp</dimen>
+    <dimen name="padding_large">48dp</dimen>
+    <dimen name="padding_medium">24dp</dimen>
+    <dimen name="padding_small">12dp</dimen>
+
+    <!-- Tablet Text Sizes -->
+    <dimen name="text_size_title">48sp</dimen>
+    <dimen name="text_size_subtitle">24sp</dimen>
+    <dimen name="text_size_body">20sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_header">32sp</dimen>
+
+    <!-- Tablet Component Dimensions -->
+    <dimen name="button_height">64dp</dimen>
+    <dimen name="input_field_height">60dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_corner_radius">20dp</dimen>
+    <dimen name="header_image_height">400dp</dimen>
+</resources>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/settingsToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary_yellow"
+            app:title="Admin Settings"
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarSettings">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="System Configuration"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteRegion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Primary Region"
+                android:layout_marginBottom="16dp"/>
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/multiAutoCompleteTags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Allowed Food Tags"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daily Operating Hours"
+                android:layout_marginBottom="8dp"/>
+
+            <TimePicker
+                android:id="@+id/openingTimePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="System Maintenance Date"
+                android:layout_marginBottom="8dp"/>
+
+            <DatePicker
+                android:id="@+id/maintenanceDatePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Limit"
+                android:layout_marginBottom="8dp"/>
+
+            <NumberPicker
+                android:id="@+id/userLimitPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <VideoView
+                android:id="@+id/tutorialVideoView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp" />
+
+            <MediaController
+                android:id="@+id/videoController"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <CheckedTextView
+                android:id="@+id/checkedTerms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I accept Admin Terms and Conditions"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:padding="16dp"
+                android:gravity="center_vertical"/>
+
+            <WebView
+                android:id="@+id/helpWebView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

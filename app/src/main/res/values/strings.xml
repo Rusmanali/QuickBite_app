@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">QuickBite</string>
+    <string name="login_account">Login Account</string>
+    <string name="welcome_to_app">Welcome to the app</string>
+    <string name="email_address">Email address</string>
+    <string name="email_hint">example@mail.com</string>
+    <string name="password">Password</string>
+    <string name="password_hint">••••••••</string>
+    <string name="forget_password">Forget password?</string>
+    <string name="login">Login</string>
+    <string name="or_sign_up_with">Or sign up with</string>
+    <string name="not_registered_yet">Not register yet?? Create account</string>
+    <string name="google_logo">Google Logo</string>
+    <string name="facebook_logo">Facebook Logo</string>
+    <string name="header_image">Header Image</string>
+
+    <string name="search_hint">Search for food...</string>
+    <string name="categories">Categories</string>
+    <string name="popular_now">Popular Now</string>
+    <string name="see_all">See All</string>
+    <string name="deliver_to">Deliver to</string>
+    <string name="current_location">San Francisco, CA</string>
+
+    <!-- Admin Strings -->
+    <string name="admin_portal">Admin Portal</string>
+    <string name="admin_dashboard">Admin Dashboard</string>
+    <string name="welcome_admin">Welcome, Admin!</string>
+    <string name="total_orders">Total Orders</string>
+    <string name="revenue">Revenue</string>
+    <string name="active_users">Active Users</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="manage_items">Manage Items</string>
+    <string name="manage_users">Manage Users</string>
+    <string name="orders">Orders</string>
+    <string name="reports">Reports</string>
+    <string name="notifications">Notifications</string>
+    <string name="settings">Settings</string>
+    <string name="daily_target_reached">Daily Target Reached: %d%%</string>
+    <string name="add_new_item">Add New Item</string>
+    <string name="edit_item">Edit Item</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="user_details">User Details</string>
+    <string name="order_details">Order Details</string>
+    <string name="analytics">Analytics</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+</resources>
