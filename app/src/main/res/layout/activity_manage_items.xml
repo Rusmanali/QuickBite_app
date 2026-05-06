@@ -32,14 +32,14 @@
             android:queryHint="Search items..."
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ListView
-            android:id="@+id/listItems"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvManageItems"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:divider="@android:color/darker_gray"
-            android:dividerHeight="0.5dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchItems" />
+            app:layout_constraintTop_toBottomOf="@id/searchItems"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_food_card" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

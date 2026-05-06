@@ -17,12 +17,37 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary_yellow"
-            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Admin Dashboard"
+            app:title="@string/admin_dashboard"
             app:titleTextColor="@color/white" />
 
-        <ScrollView
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="@string/notifications"
+            android:src="@android:drawable/ic_popup_reminder"
+            app:layout_constraintBottom_toBottomOf="@id/adminToolbar"
+            app:layout_constraintEnd_toStartOf="@id/setting"
+            app:layout_constraintTop_toTopOf="@id/adminToolbar"
+            app:tint="@color/white"
+            tools:srcCompat="@drawable/notification_bell_svgrepo_com" />
+
+        <ImageView
+            android:id="@+id/setting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/settings"
+            android:src="@android:drawable/ic_menu_manage"
+            app:layout_constraintBottom_toBottomOf="@id/adminToolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/adminToolbar"
+            app:tint="@color/white"
+            tools:srcCompat="@drawable/settings" />
+
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -35,7 +60,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Welcome Section with TextClock and Chronometer -->
+                <!-- Welcome Section -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -52,7 +77,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Welcome, Admin!"
+                            android:text="@string/welcome_admin"
                             android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -60,7 +85,8 @@
                         <TextClock
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:format12Hour="hh:mm a"
+                            android:format12Hour="EEEE, hh:mm a"
+                            android:textColor="@color/gray_600"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -68,7 +94,9 @@
                         android:id="@+id/dashboardChronometer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp" />
+                        android:textColor="@color/primary_yellow"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <!-- Metrics Horizontal Scroll -->
@@ -88,7 +116,8 @@
                             android:layout_height="80dp"
                             android:layout_margin="4dp"
                             app:cardBackgroundColor="#E3F2FD"
-                            app:cardCornerRadius="8dp">
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -107,7 +136,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Total Orders"
+                                    android:text="@string/total_orders"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -117,7 +146,8 @@
                             android:layout_height="80dp"
                             android:layout_margin="4dp"
                             app:cardBackgroundColor="#F1F8E9"
-                            app:cardCornerRadius="8dp">
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -136,7 +166,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Revenue"
+                                    android:text="@string/revenue"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -146,7 +176,8 @@
                             android:layout_height="80dp"
                             android:layout_margin="4dp"
                             app:cardBackgroundColor="#FFF3E0"
-                            app:cardCornerRadius="8dp">
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -165,7 +196,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Active Users"
+                                    android:text="@string/active_users"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -175,8 +206,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Quick Actions"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/quick_actions"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -190,11 +221,11 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardManageItems"
                         android:layout_width="0dp"
-                        android:layout_height="120dp"
+                        android:layout_height="100dp"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp">
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -203,8 +234,9 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:contentDescription="@string/manage_items"
                                 android:src="@android:drawable/ic_menu_add"
                                 app:tint="@color/primary_yellow" />
 
@@ -212,7 +244,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Manage Items"
+                                android:text="@string/manage_items"
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -221,11 +253,11 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardManageUsers"
                         android:layout_width="0dp"
-                        android:layout_height="120dp"
+                        android:layout_height="100dp"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp">
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -234,8 +266,9 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:contentDescription="@string/manage_users"
                                 android:src="@android:drawable/ic_menu_myplaces"
                                 app:tint="@color/primary_yellow" />
 
@@ -243,7 +276,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Manage Users"
+                                android:text="@string/manage_users"
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -252,11 +285,11 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardManageOrders"
                         android:layout_width="0dp"
-                        android:layout_height="120dp"
+                        android:layout_height="100dp"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp">
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -265,8 +298,9 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:contentDescription="@string/orders"
                                 android:src="@android:drawable/ic_menu_agenda"
                                 app:tint="@color/primary_yellow" />
 
@@ -274,7 +308,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Orders"
+                                android:text="@string/orders"
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -283,11 +317,11 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardReports"
                         android:layout_width="0dp"
-                        android:layout_height="120dp"
+                        android:layout_height="100dp"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp">
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -296,8 +330,9 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:contentDescription="@string/reports"
                                 android:src="@android:drawable/ic_menu_sort_by_size"
                                 app:tint="@color/primary_yellow" />
 
@@ -305,20 +340,20 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Reports"
+                                android:text="@string/reports"
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Notifications -->
+                    <!-- Categories Management -->
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardNotifications"
+                        android:id="@+id/cardManageCategories"
                         android:layout_width="0dp"
-                        android:layout_height="120dp"
+                        android:layout_height="100dp"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp">
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -327,29 +362,30 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@android:drawable/ic_popup_reminder"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:contentDescription="@string/categories"
+                                android:src="@android:drawable/ic_menu_gallery"
                                 app:tint="@color/primary_yellow" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Notifications"
+                                android:text="@string/categories"
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Settings -->
+                    <!-- Manage Popular Items -->
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardSettings"
+                        android:id="@+id/cardManagePopular"
                         android:layout_width="0dp"
-                        android:layout_height="120dp"
+                        android:layout_height="100dp"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp">
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -358,21 +394,25 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@android:drawable/ic_menu_manage"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:contentDescription="@string/manage_popular"
+                                android:src="@android:drawable/btn_star_big_on"
                                 app:tint="@color/primary_yellow" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Settings"
+                                android:text="@string/manage_popular"
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
-
                 </GridLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -394,7 +434,19 @@
                     android:textSize="12sp" />
 
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/add_new_item"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/primary_yellow"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
@@ -403,31 +455,6 @@
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/admin_bottom_nav_menu" />
-
-        <ImageView
-            android:id="@+id/notification"
-            android:layout_width="21dp"
-            android:layout_height="23dp"
-            android:rotation="25"
-            android:src="@android:drawable/ic_popup_reminder"
-            app:tint="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/setting"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            tools:srcCompat="@drawable/notification_bell_svgrepo_com" />
-
-        <ImageView
-            android:id="@+id/setting"
-            android:layout_width="22dp"
-            android:layout_height="24dp"
-            android:src="@android:drawable/ic_menu_manage"
-            app:tint="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            tools:srcCompat="@drawable/settings" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

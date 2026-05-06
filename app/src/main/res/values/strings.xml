@@ -3,13 +3,23 @@
     <string name="login_account">Login Account</string>
     <string name="welcome_to_app">Welcome to the app</string>
     <string name="email_address">Email address</string>
-    <string name="email_hint">example@mail.com</string>
+    <string name="email_hint">example@gmail.com</string>
     <string name="password">Password</string>
-    <string name="password_hint">••••••••</string>
+    <string name="password_hint">password</string>
     <string name="forget_password">Forget password?</string>
     <string name="login">Login</string>
     <string name="or_sign_up_with">Or sign up with</string>
-    <string name="not_registered_yet">Not register yet?? Create account</string>
+    <string name="not_registered_yet">Not registered yet?</string>
+    <string name="create_account">Create Account</string>
+    <string name="join_quickbite">Join QuickBite today!</string>
+    <string name="full_name">Full Name</string>
+    <string name="name_hint">Your Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="phone_hint">+1 234 567 890</string>
+    <string name="agree_terms">I agree to the Terms and Conditions</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="not_registered_create_account">Not registered yet? Create Account</string>
     <string name="google_logo">Google Logo</string>
     <string name="facebook_logo">Facebook Logo</string>
     <string name="header_image">Header Image</string>
@@ -22,6 +32,7 @@
     <string name="current_location">San Francisco, CA</string>
 
     <!-- Admin Strings -->
+    <string name="admin">Admin</string>
     <string name="admin_portal">Admin Portal</string>
     <string name="admin_dashboard">Admin Dashboard</string>
     <string name="welcome_admin">Welcome, Admin!</string>
@@ -44,4 +55,16 @@
     <string name="analytics">Analytics</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+    <string name="recent_food_items">Recent Food Items</string>
+    <string name="manage_popular">Popular Items</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="secure_access_management">Secure access for management</string>
+    <string name="admin_email_hint">admin@quickbite.com</string>
+    <string name="back_to_user_login">← Not an Admin? User Login</string>
+    <string name="login_as_admin">Login as Admin</string>
+
+    <string name="order_confirmed">Order Confirmed!</string>
+    <string name="order_success_message">Your delicious meal is on its way.\nYou can track it in the orders section.</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="success_icon_desc">Success Icon</string>
 </resources>

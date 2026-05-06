@@ -3,30 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     android:padding="24dp">
 
     <ImageView
         android:id="@+id/ivSuccess"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@android:drawable/checkbox_on_background"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/bg_circle_yellow"
+        android:contentDescription="@string/success_icon_desc"
+        android:padding="40dp"
+        android:src="@drawable/ic_check_white"
         app:layout_constraintBottom_toTopOf="@+id/tvConfirmed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:tint="@color/primary_yellow" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/tvConfirmed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Order Confirmed!"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/order_confirmed"
         android:textColor="@color/black"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/tvMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,28 +36,31 @@
 
     <TextView
         android:id="@+id/tvMessage"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Your delicious meal is on its way.\nYou can track it in the orders section."
+        android:lineSpacingExtra="4dp"
+        android:text="@string/order_success_message"
         android:textColor="#666666"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btnBackHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvConfirmed" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBackHome"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:layout_marginTop="48dp"
         android:backgroundTint="@color/primary_yellow"
-        android:text="Back to Home"
+        android:text="@string/back_to_home"
         android:textAllCaps="false"
         android:textColor="@color/white"
+        android:textSize="18sp"
         android:textStyle="bold"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvMessage" />
 

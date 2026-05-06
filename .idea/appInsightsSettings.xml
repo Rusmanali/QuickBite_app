@@ -10,9 +10,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.quickbite" />
-                  <option name="mobileSdkAppId" value="1:977368537729:android:48e71a0b2ee69eb88f0b80" />
-                  <option name="projectId" value="quickbit-09" />
-                  <option name="projectNumber" value="977368537729" />
+                  <option name="mobileSdkAppId" value="1:482128953539:android:7f3cffdf592460c296a276" />
+                  <option name="projectId" value="quickbite-09" />
+                  <option name="projectNumber" value="482128953539" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

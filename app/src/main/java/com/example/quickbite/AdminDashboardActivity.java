@@ -13,8 +13,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -41,21 +52,27 @@ public class AdminDashboardActivity extends AppCompatActivity implements Navigat
         chronometer.setBase(SystemClock.elapsedRealtime());
         chronometer.start();
 
+        // Add Item FAB
+        FloatingActionButton fab = findViewById(R.id.fabAddItem);
+        fab.setOnClickListener(v -> {
+            startActivity(new Intent(this, AddItemActivity.class));
+        });
+
         // Quick Action Cards
         findViewById(R.id.cardManageItems).setOnClickListener(v -> startActivity(new Intent(this, ManageItemsActivity.class)));
         findViewById(R.id.cardManageUsers).setOnClickListener(v -> startActivity(new Intent(this, ManageUsersActivity.class)));
         findViewById(R.id.cardManageOrders).setOnClickListener(v -> startActivity(new Intent(this, ManageOrdersActivity.class)));
         findViewById(R.id.cardReports).setOnClickListener(v -> startActivity(new Intent(this, ReportsActivity.class)));
+        findViewById(R.id.cardManageCategories).setOnClickListener(v -> startActivity(new Intent(this, ManageCategoriesActivity.class)));
+        findViewById(R.id.cardManagePopular).setOnClickListener(v -> startActivity(new Intent(this, ManagePopularActivity.class)));
         
-        // Notifications action (Card and Image)
-        View.OnClickListener notificationListener = v -> Toast.makeText(this, "No new notifications", Toast.LENGTH_SHORT).show();
-        findViewById(R.id.cardNotifications).setOnClickListener(notificationListener);
-        findViewById(R.id.notification).setOnClickListener(notificationListener);
+        // Notifications action (Image in Toolbar)
+        findViewById(R.id.notification).setOnClickListener(v -> 
+            Toast.makeText(this, "No new notifications", Toast.LENGTH_SHORT).show());
 
-        // Settings action (Card and Image)
-        View.OnClickListener settingsListener = v -> startActivity(new Intent(this, SettingsActivity.class));
-        findViewById(R.id.cardSettings).setOnClickListener(settingsListener);
-        findViewById(R.id.setting).setOnClickListener(settingsListener);
+        // Settings action (Image in Toolbar)
+        findViewById(R.id.setting).setOnClickListener(v -> 
+            startActivity(new Intent(this, SettingsActivity.class)));
 
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
         bottomNav.setOnItemSelectedListener(item -> {

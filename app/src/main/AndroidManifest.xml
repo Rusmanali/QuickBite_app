@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/_774433043772"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/_774433043772"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuickBite">
         <activity
@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".PhoneLoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".OrderConfirmationActivity" />
@@ -33,6 +34,9 @@
         <activity android:name=".ManageOrdersActivity" />
         <activity android:name=".ReportsActivity" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".ManageCategoriesActivity" />
+        <activity android:name=".AddItemActivity" />
+        <activity android:name=".ManagePopularActivity" />
     </application>
 
 </manifest>

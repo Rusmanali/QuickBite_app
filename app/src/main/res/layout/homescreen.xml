@@ -153,9 +153,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <include layout="@layout/item_category" />
-                    <include layout="@layout/item_category2" />
-                    <include layout="@layout/item_category3" />
-                    <include layout="@layout/item_category4" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -175,8 +172,6 @@
                 android:layout_marginTop="12dp"
                 android:orientation="vertical">
                 <include layout="@layout/item_popular" />
-                <include layout="@layout/item_popular3" />
-                <include layout="@layout/item_popular2" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -17,5 +17,11 @@ public class AdminLoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        findViewById(R.id.btnBackToUserLogin).setOnClickListener(v -> {
+            Intent intent = new Intent(AdminLoginActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 }

@@ -13,8 +13,16 @@
     <color name="gray_600">#FF757575</color>
 
     <color name="primary_yellow">#F9C333</color>
+    <color name="background">#fff8dc</color>
     <color name="text_brown">#7A5600</color>
     <color name="edittext_border">#D4AF37</color>
     <color name="button_gold">#B8860B</color>
     <color name="transparent">#00E6A100</color>
+
+    <!-- Quick Action Tints -->
+    <color name="tint_yellow">#FFF9E6</color>
+    <color name="tint_blue">#EBF5FF</color>
+    <color name="tint_green">#ECFDF5</color>
+    <color name="tint_purple">#F5F3FF</color>
+    <color name="tint_red">#FEF2F2</color>
 </resources>
