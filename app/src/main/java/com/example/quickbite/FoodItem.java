@@ -1,9 +1,12 @@
 package com.example.quickbite;
 
-public class FoodItem {
+import java.io.Serializable;
+
+public class FoodItem implements Serializable {
     private String id;
     private String name;
     private String price;
+    private String description;
     private String imageUrl;
     private float rating;
     private boolean popular;
@@ -11,10 +14,11 @@ public class FoodItem {
 
     public FoodItem() {}
 
-    public FoodItem(String id, String name, String price, String imageUrl, float rating, boolean popular, String category) {
+    public FoodItem(String id, String name, String price, String description, String imageUrl, float rating, boolean popular, String category) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.description = description;
         this.imageUrl = imageUrl;
         this.rating = rating;
         this.popular = popular;
@@ -29,6 +33,9 @@ public class FoodItem {
     
     public String getPrice() { return price; }
     public void setPrice(String price) { this.price = price; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
     
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }

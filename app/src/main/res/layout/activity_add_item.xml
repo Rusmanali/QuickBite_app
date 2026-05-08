@@ -54,7 +54,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/editbox"
-                android:hint="Price (e.g. $12.99)"
+                android:hint="Price (e.g. Rs. 1200)"
+                android:padding="16dp" />
+
+            <EditText
+                android:id="@+id/etFoodDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/editbox"
+                android:hint="Description"
                 android:padding="16dp" />
 
             <EditText
@@ -94,11 +103,22 @@
                     android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchPopular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Mark as Popular Item"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:thumbTint="@color/primary_yellow"
+                app:trackTint="@color/tint_yellow" />
+
             <Button
                 android:id="@+id/btnSaveItem"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:backgroundTint="@color/primary_yellow"
+                android:backgroundTint="@color/button_gold"
                 android:text="Save Item"
                 android:textColor="@color/white"
                 android:textSize="16sp"

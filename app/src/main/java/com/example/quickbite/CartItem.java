@@ -29,7 +29,7 @@ public class CartItem {
 
     public double getTotalPrice() {
         try {
-            String priceStr = foodItem.getPrice().replace("$", "");
+            String priceStr = foodItem.getPrice().replace("Rs.", "").replace("Rs", "").replace("$", "").trim();
             return Double.parseDouble(priceStr) * quantity;
         } catch (Exception e) {
             return 0.0;

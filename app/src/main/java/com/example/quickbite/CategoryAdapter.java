@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +15,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private List<Category> categoryList;
     private OnCategoryClickListener listener;
+    private int selectedPosition = -1;
 
     public interface OnCategoryClickListener {
-        void onCategoryClick(Category category);
+        void onCategoryClick(Category category, boolean isSelected);
     }
 
     public CategoryAdapter(List<Category> categoryList, OnCategoryClickListener listener) {
@@ -44,10 +46,27 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             holder.ivImage.setImageResource(category.getImageResId());
         }
 
+        // Set selected state
+        holder.layoutCategory.setSelected(selectedPosition == position);
+
         holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onCategoryClick(category);
+            int previousSelected = selectedPosition;
+            if (selectedPosition == position) {
+                // Deselect
+                selectedPosition = -1;
+                if (listener != null) {
+                    listener.onCategoryClick(category, false);
+                }
+            } else {
+                // Select new
+                selectedPosition = position;
+                if (listener != null) {
+                    listener.onCategoryClick(category, true);
+                }
             }
+            
+            notifyItemChanged(previousSelected);
+            notifyItemChanged(selectedPosition);
         });
     }
 
@@ -59,11 +78,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public static class CategoryViewHolder extends RecyclerView.ViewHolder {
         ImageView ivImage;
         TextView tvName;
+        LinearLayout layoutCategory;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             ivImage = itemView.findViewById(R.id.ivCategory);
             tvName = itemView.findViewById(R.id.tvCategoryName);
+            layoutCategory = itemView.findViewById(R.id.layoutCategory);
         }
     }
 }

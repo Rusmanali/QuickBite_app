@@ -67,4 +67,13 @@
     <string name="order_success_message">Your delicious meal is on its way.\nYou can track it in the orders section.</string>
     <string name="back_to_home">Back to Home</string>
     <string name="success_icon_desc">Success Icon</string>
+
+    <string name="no_categories_available">No categories available</string>
+    <string name="promo_discount">30% OFF</string>
+    <string name="promo_subtext">on your first order</string>
+    <string name="no_items_available">No food items available</string>
+    <string name="app_logo_desc">App Logo</string>
+    <string name="promo_image_desc">Promotional Image</string>
+    <string name="welcome_guest">Hi, Guest!</string>
+    <string name="welcome_user">Hi, %s!</string>
 </resources>

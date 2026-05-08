@@ -5,6 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".AdminDashboardActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -126,9 +127,10 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/tvTotalOrdersCount"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="15"
+                                    android:text="0"
                                     android:textColor="#1976D2"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
@@ -158,7 +160,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="$1,240"
+                                    android:text="Rs. 1,240"
                                     android:textColor="#388E3C"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
@@ -453,6 +455,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            app:elevation="8dp"
+            app:itemIconTint="@color/nav_item_color"
+            app:itemTextColor="@color/nav_item_color"
+            app:labelVisibilityMode="selected"
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/admin_bottom_nav_menu" />
 

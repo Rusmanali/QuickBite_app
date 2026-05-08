@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Chronometer;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -30,6 +31,8 @@ import java.util.List;
 public class AdminDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
+    private TextView tvTotalOrders;
+    private DatabaseReference ordersDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,10 @@ public class AdminDashboardActivity extends AppCompatActivity implements Navigat
         Chronometer chronometer = findViewById(R.id.dashboardChronometer);
         chronometer.setBase(SystemClock.elapsedRealtime());
         chronometer.start();
+
+        tvTotalOrders = findViewById(R.id.tvTotalOrdersCount);
+        ordersDatabase = FirebaseDatabase.getInstance().getReference("Orders");
+        fetchOrderCount();
 
         // Add Item FAB
         FloatingActionButton fab = findViewById(R.id.fabAddItem);
@@ -106,6 +113,28 @@ public class AdminDashboardActivity extends AppCompatActivity implements Navigat
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void fetchOrderCount() {
+        ordersDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int activeOrders = 0;
+                for (DataSnapshot orderSnapshot : snapshot.getChildren()) {
+                    Order order = orderSnapshot.getValue(Order.class);
+                    if (order != null) {
+                        String status = order.getStatus();
+                        if ("Pending".equalsIgnoreCase(status) || "Processing".equalsIgnoreCase(status)) {
+                            activeOrders++;
+                        }
+                    }
+                }
+                tvTotalOrders.setText(String.valueOf(activeOrders));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
     }
 
     @Override

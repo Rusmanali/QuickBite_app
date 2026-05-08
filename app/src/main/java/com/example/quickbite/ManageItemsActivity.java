@@ -54,6 +54,7 @@ public class ManageItemsActivity extends AppCompatActivity {
                 intent.putExtra("ITEM_ID", item.getId());
                 intent.putExtra("ITEM_NAME", item.getName());
                 intent.putExtra("ITEM_PRICE", item.getPrice());
+                intent.putExtra("ITEM_DESCRIPTION", item.getDescription());
                 intent.putExtra("ITEM_IMAGE", item.getImageUrl());
                 intent.putExtra("ITEM_RATING", item.getRating());
                 intent.putExtra("ITEM_POPULAR", item.isPopular());

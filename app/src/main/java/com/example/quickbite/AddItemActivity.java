@@ -7,6 +7,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,8 +21,9 @@ import java.util.List;
 
 public class AddItemActivity extends AppCompatActivity {
 
-    private EditText etName, etPrice, etImageUrl;
+    private EditText etName, etPrice, etImageUrl, etDescription;
     private AutoCompleteTextView autoCompleteCategory;
+    private SwitchMaterial switchPopular;
     private Button btnSave;
     private DatabaseReference databaseReference, categoryDatabase;
     
@@ -45,8 +47,10 @@ public class AddItemActivity extends AppCompatActivity {
 
         etName = findViewById(R.id.etFoodName);
         etPrice = findViewById(R.id.etFoodPrice);
+        etDescription = findViewById(R.id.etFoodDescription);
         etImageUrl = findViewById(R.id.etFoodImageUrl);
         autoCompleteCategory = findViewById(R.id.autoCompleteCategory);
+        switchPopular = findViewById(R.id.switchPopular);
         btnSave = findViewById(R.id.btnSaveItem);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("FoodItems");
@@ -63,9 +67,11 @@ public class AddItemActivity extends AppCompatActivity {
             itemId = getIntent().getStringExtra("ITEM_ID");
             etName.setText(getIntent().getStringExtra("ITEM_NAME"));
             etPrice.setText(getIntent().getStringExtra("ITEM_PRICE"));
+            etDescription.setText(getIntent().getStringExtra("ITEM_DESCRIPTION"));
             etImageUrl.setText(getIntent().getStringExtra("ITEM_IMAGE"));
             existingRating = getIntent().getFloatExtra("ITEM_RATING", 5.0f);
             existingPopular = getIntent().getBooleanExtra("ITEM_POPULAR", false);
+            switchPopular.setChecked(existingPopular);
             
             btnSave.setText("Update Item");
             if (getSupportActionBar() != null) {
@@ -109,16 +115,18 @@ public class AddItemActivity extends AppCompatActivity {
     private void saveFoodItem() {
         String name = etName.getText().toString().trim();
         String price = etPrice.getText().toString().trim();
+        String description = etDescription.getText().toString().trim();
         String imageUrl = etImageUrl.getText().toString().trim();
         String selectedCategory = autoCompleteCategory.getText().toString().trim();
+        boolean isPopular = switchPopular.isChecked();
 
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(price) || TextUtils.isEmpty(imageUrl) || TextUtils.isEmpty(selectedCategory)) {
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(price) || TextUtils.isEmpty(description) || TextUtils.isEmpty(imageUrl) || TextUtils.isEmpty(selectedCategory)) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String id = (itemId != null) ? itemId : databaseReference.push().getKey();
-        FoodItem item = new FoodItem(id, name, price, imageUrl, existingRating, existingPopular, selectedCategory);
+        FoodItem item = new FoodItem(id, name, price, description, imageUrl, existingRating, isPopular, selectedCategory);
 
         if (id != null) {
             databaseReference.child(id).setValue(item)

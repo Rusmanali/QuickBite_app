@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:icon="@android:drawable/ic_menu_today"
+        android:icon="@drawable/home"
         android:title="Home" />
     <item
         android:id="@+id/nav_orders"
-        android:icon="@android:drawable/ic_menu_agenda"
+        android:icon="@drawable/orders"
         android:title="Orders" />
     <item
         android:id="@+id/nav_reports"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:icon="@drawable/order"
         android:title="Reports" />
     <item
         android:id="@+id/nav_settings"
-        android:icon="@android:drawable/ic_menu_preferences"
+        android:icon="@drawable/settings"
         android:title="Settings" />
 </menu>

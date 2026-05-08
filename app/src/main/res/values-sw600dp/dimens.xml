@@ -20,4 +20,9 @@
     <dimen name="card_elevation">8dp</dimen>
     <dimen name="card_corner_radius">20dp</dimen>
     <dimen name="header_image_height">400dp</dimen>
+
+    <!-- Navigation Bar Dimensions -->
+    <dimen name="nav_margin_horizontal">64dp</dimen>
+    <dimen name="nav_margin_bottom">32dp</dimen>
+    <dimen name="nav_max_width">600dp</dimen>
 </resources>

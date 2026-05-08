@@ -2,11 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="180dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="24dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         <ImageView
             android:id="@+id/foodImage"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:scaleType="centerCrop"
             android:src="@drawable/pizza_pizza_filled_with_tomatoes_salami_olives"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,9 +25,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            app:cardCornerRadius="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="8dp"
             app:cardElevation="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -36,12 +37,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp">
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp">
 
                 <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
                     android:src="@android:drawable/btn_star_big_on"
                     app:tint="@color/button_gold" />
 
@@ -49,10 +50,10 @@
                     android:id="@+id/tvRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="3dp"
                     android:text="4.5"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -61,38 +62,54 @@
             android:id="@+id/tvFoodName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:text="Crown crust pizza"
-            android:textColor="#333333"
-            android:textSize="18sp"
+            android:maxLines="1"
+            android:text="Crown Crust Pizza"
+            android:textColor="#212121"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/foodImage" />
 
         <TextView
+            android:id="@+id/tvFoodDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="Delicious cheese burst pizza with extra toppings"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/tvFoodName"
+            app:layout_constraintStart_toStartOf="@id/tvFoodName"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodName" />
+
+        <TextView
             android:id="@+id/tvFoodPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Rs. 2200"
-            android:textColor="@color/button_gold"
-            android:textSize="16sp"
+            android:text="Rs. 1200"
+            android:textColor="@color/primary_yellow"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/tvFoodName"
-            app:layout_constraintTop_toBottomOf="@id/tvFoodName" />
+            app:layout_constraintTop_toBottomOf="@id/tvFoodDescription" />
 
         <ImageView
             android:id="@+id/btnAdd"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginEnd="12dp"
-            android:background="@drawable/add_button_bg"
-            android:padding="8dp"
+            android:background="@drawable/bg_floating_nav"
+            android:backgroundTint="@color/primary_yellow"
+            android:padding="6dp"
             android:src="@android:drawable/ic_input_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

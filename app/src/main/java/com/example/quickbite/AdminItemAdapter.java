@@ -3,6 +3,7 @@ package com.example.quickbite;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -28,8 +29,7 @@ public class AdminItemAdapter extends RecyclerView.Adapter<AdminItemAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Using the new food card layout
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_food_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_admin_product, parent, false);
         return new ViewHolder(view);
     }
 
@@ -37,28 +37,25 @@ public class AdminItemAdapter extends RecyclerView.Adapter<AdminItemAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FoodItem item = items.get(position);
         holder.name.setText(item.getName());
-        holder.price.setText(item.getPrice());
-        holder.rating.setText(String.valueOf(item.getRating()));
         
-        // Load image from URL using Glide
+        // Format price to show Rs. correctly
+        String price = item.getPrice();
+        if (price != null) {
+            price = price.replace("Rs.", "").replace("Rs", "").trim();
+            holder.price.setText("Rs. " + price);
+        }
+        
         Glide.with(holder.itemView.getContext())
                 .load(item.getImageUrl())
                 .placeholder(R.drawable.pizza_pizza_filled_with_tomatoes_salami_olives)
                 .into(holder.image);
 
-        // Show popular indicator if needed (repurposing the btnAdd or adding a tint)
-        if (item.isPopular()) {
-            holder.btnAdd.setImageResource(android.R.drawable.btn_star_big_on);
-        } else {
-            holder.btnAdd.setImageResource(android.R.drawable.ic_input_add);
+        if (holder.tvPopularBadge != null) {
+            holder.tvPopularBadge.setVisibility(item.isPopular() ? View.VISIBLE : View.GONE);
         }
 
-        // For admin dashboard, maybe we want to edit/delete on click
-        holder.itemView.setOnClickListener(v -> listener.onEdit(item));
-        
-        // The add button in the card could be repurposed for delete or edit in admin view
-        // or just kept as is.
-        holder.btnAdd.setOnClickListener(v -> listener.onEdit(item));
+        holder.btnEdit.setOnClickListener(v -> listener.onEdit(item));
+        holder.btnDelete.setOnClickListener(v -> listener.onDelete(item));
     }
 
     @Override
@@ -67,16 +64,18 @@ public class AdminItemAdapter extends RecyclerView.Adapter<AdminItemAdapter.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView image, btnAdd;
-        TextView name, price, rating;
+        ImageView image;
+        TextView name, price, tvPopularBadge;
+        ImageButton btnEdit, btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.foodImage);
-            name = itemView.findViewById(R.id.tvFoodName);
-            price = itemView.findViewById(R.id.tvFoodPrice);
-            rating = itemView.findViewById(R.id.tvRating);
-            btnAdd = itemView.findViewById(R.id.btnAdd);
+            image = itemView.findViewById(R.id.adminItemImage);
+            name = itemView.findViewById(R.id.adminItemName);
+            price = itemView.findViewById(R.id.adminItemPrice);
+            tvPopularBadge = itemView.findViewById(R.id.tvPopularBadge);
+            btnEdit = itemView.findViewById(R.id.btnEditItem);
+            btnDelete = itemView.findViewById(R.id.btnDeleteItem);
         }
     }
 }
